@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-buget-tool": {
+      "hosting": {
+        "angular-budget-tool": [
+          "angular-buget-tool"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-buget-tool"
+  }
+}
