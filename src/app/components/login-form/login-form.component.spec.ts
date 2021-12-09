@@ -51,4 +51,9 @@ describe('LoginFormComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('button.login')).not.toEqual(null);
   });
+
+  it('has a create account button', () => {
+    const compile = fixture.nativeElement;
+    expect(compile.querySelector('button.create-account')).not.toEqual(null);
+  })
 });
