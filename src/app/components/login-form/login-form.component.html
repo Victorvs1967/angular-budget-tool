@@ -1,13 +1,24 @@
 <div class="container">
   <h1 class="header">Welcome</h1>
   <form class="login-form">
+    <div class="message" *ngIf="isAccountCreated">
+      Your account was created successfully.
+    </div>
     <mat-form-field appearance="outline" class="email">
-      <input matInput placeholder="Email">
+      <input matInput placeholder="Email" [formControl]="email" required>
+      <mat-error class="email-validation-message" *ngIf="email.invalid">
+        An email is required.
+      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" class="password">
-      <input matInput placeholder="Email">
+      <input matInput type="password" placeholder="Password" [formControl]="password" required>
+      <mat-error class="password-validation-message" *ngIf="password.invalid">
+        A password is required.
+      </mat-error>
     </mat-form-field>
     <button mat-raised-button class="login">Login</button>
-    <button mat-raised-button class="create-account" color="primary">Create Account</button>
+    <button mat-raised-button class="create-account" color="primary" (click)="onCreateAccountClicked($event)" [disabled]="email.invalid || password.invalid">
+      Create Account
+    </button>
   </form>
 </div>

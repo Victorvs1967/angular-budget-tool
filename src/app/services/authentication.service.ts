@@ -8,7 +8,7 @@ export class AuthenticationService {
 
   constructor(public afAuth: AngularFireAuth) { }
 
-  async createAcount(email: string, password: string) {
+  async createAccount(email: string, password: string) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       return !!result;

@@ -25,13 +25,13 @@ describe('AuthenticationService', () => {
 
   it('creates an acount', async () => {
     const { email, password } = generateEmailAndPassword();    
-    const result = await service.createAcount(email, password);
+    const result = await service.createAccount(email, password);
     expect(result).toEqual(true);
   });
 
   it('logs users in', async () => {
     const { email, password } = generateEmailAndPassword();
-    const result = await service.createAcount(email, password);
+    const result = await service.createAccount(email, password);
     expect(result).toEqual(true);
 
     const loginResult = await service.login(email, password);

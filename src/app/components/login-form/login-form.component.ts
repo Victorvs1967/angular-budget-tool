@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  isAccountCreated = false;
+  email = new FormControl('', [Validators.required]);
+  password = new FormControl('', [Validators.required]);
+
+  constructor(public dialog: MatDialog, public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+  }
+
+  async onCreateAccountClicked(e: Event) {
+    e.preventDefault();
+    this.isAccountCreated = await this.authenticationService.createAccount(this.email.value, this.password.value);
   }
 
 }
