@@ -82,9 +82,6 @@ describe('LoginFormComponent', () => {
 
     createAccount.onclick = (event: any) => event.preventDefault();
     createAccount.click();
-    fixture.detectChanges();
-
-    // expect(compiled.querySelector('.message').textContent).toContain('Your account was created successfully.');
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
