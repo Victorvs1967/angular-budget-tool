@@ -11,7 +11,7 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" class="password">
-      <input matInput type="password" placeholder="Password" [formControl]="password" required>
+      <input matInput type="password" class="create-account" placeholder="Password" [formControl]="password" required>
       <mat-error class="password-validation-message" *ngIf="password.invalid">
         A password is required.
       </mat-error>
