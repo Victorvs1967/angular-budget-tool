@@ -30,13 +30,6 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular-budget-tool');
   });
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement as HTMLElement;
-  //   expect(compiled.querySelector('.content span')?.textContent).toContain('angular-budget-tool app is running!');
-  // });
-
   it('has a login form', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
