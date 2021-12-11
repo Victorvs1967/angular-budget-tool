@@ -11,6 +11,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class LoginFormComponent implements OnInit {
 
   isAccountCreated = false;
+  isLogin = false;
+
   email = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
 
@@ -22,6 +24,10 @@ export class LoginFormComponent implements OnInit {
   async onCreateAccountClicked(e: Event) {
     e.preventDefault();
     this.isAccountCreated = await this.authenticationService.createAccount(this.email.value, this.password.value);
+  }
+
+  async onLoginClicked() {
+    this.isLogin = await this.authenticationService.login(this.email.value, this.password.value);
   }
 
 }

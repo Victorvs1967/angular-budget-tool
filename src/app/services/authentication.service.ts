@@ -18,8 +18,11 @@ export class AuthenticationService {
   }
 
   async login(email: string, password: string) {
+    sessionStorage.clear();
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
+      const token: string = result.user?.getIdTokenResult() ? (await result.user!.getIdTokenResult()).token : '';
+      sessionStorage.setItem('userToken', token);
       return !!result;
     } catch (e) {
       return false;

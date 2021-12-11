@@ -1,5 +1,6 @@
 <div class="container">
   <h1 class="header">Welcome</h1>
+  <h2 *ngIf="isLogin">Hello!</h2>
   <form class="login-form">
     <div class="message" *ngIf="isAccountCreated">
       Your account was created successfully.
@@ -16,7 +17,7 @@
         A password is required.
       </mat-error>
     </mat-form-field>
-    <button mat-raised-button class="login">Login</button>
+    <button mat-raised-button class="login" (click)="onLoginClicked()">Login</button>
     <button mat-raised-button class="create-account" color="primary" (click)="onCreateAccountClicked($event)" [disabled]="email.invalid || password.invalid">
       Create Account
     </button>
